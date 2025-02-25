@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main()
+{
+    int t;
+    scanf("%d", &t);
+ 
+    while (t--)
+    {
+        int n, k, p;
+        scanf("%d %d %d", &n, &k, &p);
+ 
+        int min_possible = n * (-p);
+        int max_possible = n * p;
+        if (k < min_possible || k > max_possible)
+        {
+            printf("-1\n");
+            continue;
+        }
+        int target = abs(k);
+        int operations = target / p;
+        if (target % p != 0) operations++;
+ 
+        printf("%d\n", operations);
+    }
+ 
+    return 0;
+}
